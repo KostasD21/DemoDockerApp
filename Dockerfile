@@ -15,6 +15,9 @@ FROM eclipse-temurin:21.0.2_13-jdk-alpine
 # Set the working directory in the container
 WORKDIR /app
 
+RUN apk update && \
+        apk add --no-cache wget curl
+
 # Copy the JAR file into the container
 COPY --from=build /app/target/DemoDockerApp-0.0.1-SNAPSHOT.jar .
 
