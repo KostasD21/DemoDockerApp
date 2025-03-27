@@ -21,5 +21,8 @@ RUN apk update && \
 # Copy the JAR file into the container
 COPY --from=build /app/target/DemoDockerApp-0.0.1-SNAPSHOT.jar .
 
+# Expose the port the app runs on
+EXPOSE 8080
+
 # Run the Java application
 CMD ["java", "-jar", "DemoDockerApp-0.0.1-SNAPSHOT.jar"]
